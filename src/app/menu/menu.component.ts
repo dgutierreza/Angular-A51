@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
 import { Customer, Dish } from 'src/app/interface';
+import * as dishesJson from './../../assets/dishes.json';
 
 @Component({
   selector: 'app-menu',
@@ -10,11 +10,11 @@ import { Customer, Dish } from 'src/app/interface';
 export class MenuComponent implements OnInit {
   name = 'Diego';
 
-  dish: Dish;
+  //dish: Dish;
   customer: Customer;
   check:string = '';
-
-  dishes: Dish[] = [
+  dishes: Dish[] = dishesJson.dishes;
+  /*dishes: Dish[] = [
     {
       name: 'ceviche',
       ingredients: [{ name: 'limon', qty: 8 }, { name: 'pescado', qty: 2 }],
@@ -27,7 +27,7 @@ export class MenuComponent implements OnInit {
       name: 'pollo a la brasa',
       ingredients: [{ name: 'papas', qty: 5 }, { name: 'pollo', qty: 2 }],
     },
-  ];
+  ];*/
   constructor() { 
     this.name;
     this.listDishes();
@@ -36,6 +36,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
   listDishes():void{
+    console.log(this.dishes);
     this.dishes.forEach((dish)=>{
       console.log(dish);
     });

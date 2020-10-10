@@ -1,0 +1,11 @@
+<p>COMPONENTEN MENU</p>
+Hola {{name}}!!!
+
+<h2 *ngIf="check.length>0">El platillo ganador es: {{check}}</h2>
+<ul>
+    <ng-container *ngFor="let dish of dishes" class="dishes">
+        
+        <app-dish *ngIf="dish.stock" [dish]="dish" (choose)="select($event)"></app-dish>
+    </ng-container>
+    
+</ul>

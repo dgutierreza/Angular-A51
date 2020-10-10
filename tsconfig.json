@@ -18,7 +18,8 @@
     ],
     "resolveJsonModule": true,
     "paths": {
-      "@app/models":["src/app/interface"]
+      "@app/models":["src/app/interface"],
+      "@app/pipes":["src/app/pipes"]
     }
   }
 }

@@ -15,13 +15,10 @@ export class DishComponent implements OnInit {
   //PERO CON ERROR EN CONSOLA -- PREGUNTAR???
 
   @Input() set dish(value: Dish){
-    console.log('val',value.ingredients.length);
     this._name = this.generateName(value.name);
     this._totalIngredients = value.ingredients.length;
   }
-  @Input() set dish_select(value: Dish){
-    this._winner = this.generateDish(value.name,value.ingredients.length);
-  }
+ 
   @Output() choose: EventEmitter<string> = new EventEmitter<string>
   ();
 
@@ -44,9 +41,7 @@ export class DishComponent implements OnInit {
   generateName(name:string): string{
     return `${name}`;
   }
-  generateDish(name:string,qty:number):string{
-    return `${name} que contiene ${qty}`;
-  }
+ 
   notify(name:string):void{
     console.log('name-notify',name);
     this.choose.emit(name)
