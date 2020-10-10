@@ -1,7 +1,9 @@
 <p>COMPONENTEN MENU</p>
 Hola {{name}}!!!
+
+<h2 *ngIf="check.length>0">El platillo ganador es: {{check}}</h2>
 <ul>
     <li *ngFor="let dish of dishes" class="dishes">
-        <app-dish [dish]="dish"></app-dish>
+        <app-dish [dish]="dish" (choose)="select($event)"></app-dish>
     </li>
 </ul>

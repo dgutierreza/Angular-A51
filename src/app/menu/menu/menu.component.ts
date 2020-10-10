@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
 import { Customer, Dish } from 'src/app/interface';
 
 @Component({
@@ -11,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   dish: Dish;
   customer: Customer;
+  check:string = '';
 
   dishes: Dish[] = [
     {
@@ -37,6 +39,11 @@ export class MenuComponent implements OnInit {
     this.dishes.forEach((dish)=>{
       console.log(dish);
     });
+  }
+  select( name:string ) :void{
+    let done = this.dishes.find(element => element.name == name);
+    console.log(done)
+    this.check = `${done.name} que contiene ${done.ingredients.length}`;
   }
 
 }
